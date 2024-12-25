@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Developer Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background: #EAEDED;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(250px, 300px) minmax(500px, 1fr) minmax(250px, 300px);
+            gap: 20px;
+        }
+
+        .breadcrumb {
+            color: #007185;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-size: 14px;
+            max-width: 1300px;
+            margin: 0 auto 20px;
+        }
+
+        .breadcrumb:hover {
+            color: #C7511F;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+
+        .tech-container {
+            margin-top: 15px;
+        }
+
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-item {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tech-item:hover {
+            border-color: #007185;
+            transform: translateY(-1px);
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .stars {
+            color: #FFA41C;
+            margin-right: 8px;
+            letter-spacing: -1px;
+        }
+
+        .endorsements {
+            color: #007185;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .endorsements:hover {
+            color: #C7511F;
+            text-decoration: underline;
+        }
+
+        .amazon-choice {
+            display: inline-block;
+            background: #232F3E;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            margin: 10px 0;
+        }
+
+        .cgpa {
+            color: #B12704;
+            font-size: 28px;
+            margin: 15px 0 5px;
+        }
+
+        .education {
+            color: #565959;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-bottom: 10px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: #FFD814;
+            border-color: #FCD200;
+            color: #0F1111;
+        }
+
+        .btn-primary:hover {
+            background: #F7CA00;
+        }
+
+        .btn-secondary {
+            background: #FFA41C;
+            border-color: #FF8F00;
+            color: #0F1111;
+        }
+
+        .btn-secondary:hover {
+            background: #FA8900;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 12px 0;
+            color: #0F1111;
+            font-size: 14px;
+        }
+
+        .check-icon {
+            color: #007600;
+        }
+
+        .main-section {
+            margin-bottom: 24px;
+        }
+
+        .main-section h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .main-content p {
+            color: #333;
+            line-height: 1.4;
+            font-size: 14px;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #232F3E;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .experience-item {
+            margin-bottom: 16px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .experience-item:hover {
+            border-color: #007185;
+        }
+
+        .experience-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .experience-duration {
+            color: #565959;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .experience-points {
+            list-style-type: none;
+            margin-left: 0;
+        }
+
+        .experience-points li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 4px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .experience-points li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #565959;
+        }
+
+        .award-badge {
+            background: linear-gradient(135deg, #FF9900, #FFA41C);
+            color: #111;
+            padding: 4px 8px;
+            border-radius: 2px;
+            font-size: 12px;
+            font-weight: 500;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .right-column {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="breadcrumb">‹ Back to candidates</div>
+    
+    <div class="container">
+        <!-- Left Column - Tech Stack -->
+        <div class="card">
+            <h2 style="font-size: 18px; font-weight: 700;">Tech Stack</h2>
+            <div class="tech-container">
+                <div class="tech-grid">
+                    <div class="tech-item">React</div>
+                    <div class="tech-item">JavaScript</div>
+                    <div class="tech-item">HTML</div>
+                    <div class="tech-item">CSS</div>
+                    <div class="tech-item">Python</div>
+                    <div class="tech-item">Web3</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle Column - Main Content -->
+        <div class="card">
+            <h1 style="font-size: 24px; font-weight: 500;">Ishan Pathak - Frontend Developer Internship</h1>
+            
+            <div class="rating">
+                <span class="stars">★★★★★</span>
+                <span class="endorsements">81,573 endorsements</span>
+            </div>
+
+            <div class="amazon-choice">
+                Amazon's Choice for Frontend Development
+            </div>
+
+            <div class="cgpa">3.91 CGPA</div>
+            <div class="education">
+                MS Computer Science @ SUNY Albany (May 2026)
+            </div>
+
+            <div class="main-section">
+                <h3>About Me</h3>
+                <p>
+                    Highly skilled software developer with a strong focus on creating efficient, 
+                    visually appealing, and user-centric web solutions. Proficient in technical 
+                    documentation and dedicated to continuous professional growth through learning 
+                    and adopting emerging technologies.
+                </p>
+            </div>
+
+            <div class="main-section">
+                <h3>Experience</h3>
+                <div class="experience-item">
+                    <div class="experience-title">Project Head Moderator - Celo Academy</div>
+                    <div class="experience-duration">2022-2023</div>
+                    <ul class="experience-points">
+                        <li>Led development of educational technical platform for CELO blockchain</li>
+                        <li>Managed team of 100+ people</li>
+                        <li>Achieved 22K+ unique visitors, 300K+ impressions</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-title">Social Media Manager - Securr</div>
+                    <div class="experience-duration">2023-2024</div>
+                    <ul class="experience-points">
+                        <li>Created Web3 security educational content</li>
+                        <li>Developed engaging social media campaigns</li>
+                        <li>Enhanced brand visibility in Web3 space</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="main-section">
+                <h3>Projects</h3>
+                <div class="experience-item">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div class="experience-title">Movie Review Analysis</div>
+                        <span class="award-badge">Technical Fair Selection</span>
+                    </div>
+                    <ul class="experience-points">
+                        <li>Built NLP-powered review analysis system that fetches user reviews and provides summary with visualization</li>
+                        <li>Designed and trained the model using custom bag-of-words techniques</li>
+                        <li>Selected for presentation at technical fair</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div class="experience-title">AIRNft</div>
+                        <span class="award-badge">Bounty Winner</span>
+                    </div>
+                    <ul class="experience-points">
+                        <li>Created a platform where users can create interactive NFTs</li>
+                        <li>Won a Bounty for innovative implementation</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div class="experience-title">Trusted Sphere</div>
+                        <span class="award-badge">Bounty Winner</span>
+                    </div>
+                    <ul class="experience-points">
+                        <li>Developed housing society maintenance system using blockchain</li>
+                        <li>Implemented crypto payments and NFT-based receipts</li>
+                        <li>Won bounty for the solution</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div class="experience-title">Asset vault</div>
+                        <span class="award-badge">Bounty Winner</span>
+                    </div>
+                    <ul class="experience-points">
+                        <li>Built an app for dividing crypto pools</li>
+                        <li>Specifically designed for DAO implementations</li>
+                        <li>Won bounty for the project</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div class="experience-title">Varnatva</div>
+                        <span class="award-badge">Live Project</span>
+                    </div>
+                    <ul class="experience-points">
+                        <li>Created a browser extension for website commenting system</li>
+                        <li>Implemented blockchain storage for comments and interactions</li>
+                        <li>Added reputation tracking and search functionality</li>
+                        <li>Live at: <a href="https://blockchain-comment.vercel.app/" style="color: #007185; text-decoration: none;" onmouseover="this.style.color='#C7511F'" onmouseout="this.style.color='#007185'">blockchain-comment.vercel.app</a></li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div class="experience-title">College Dashboard</div>
+                    </div>
+                    <ul class="experience-points">
+                        <li>Developed student profile management system using R technology</li>
+                        <li>Created interface for both students and faculty</li>
+                        <li>Implemented comprehensive data storage and visualization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column - Actions -->
+        <div class="card right-column">
+            <a href="IshanResume.pdf" download class="btn btn-primary">
+                Download Resume
+            </a>
+            <a href="mailto:ishan.pathak2711@gmail.com" class="btn btn-secondary">
+                Contact Now
+            </a>
+            
+            <div class="check-item">
+                <span class="check-icon">✓</span>
+                Available for Summer 2024 Internship
+            </div>
+            <div class="check-item">
+                <span class="check-icon">✓</span>
+                Located in Albany, New York
+            </div>
+            <div class="check-item">
+                <span class="check-icon">✓</span>
+                Eligible to work in US
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">Email copied to clipboard!</div>
+</body>
+</html>

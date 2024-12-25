@@ -302,6 +302,8 @@
                     visually appealing, and user-centric web solutions. Proficient in technical 
                     documentation and dedicated to continuous professional growth through learning 
                     and adopting emerging technologies.
+
+                    
                 </p>
             </div>
 
@@ -424,9 +426,77 @@
                 <span class="check-icon">✓</span>
                 Eligible to work in US
             </div>
+            <div class="check-item">
+                <span class="check-icon">✓</span>
+                Check Dev console
+            </div>
         </div>
     </div>
 
     <div id="toast" class="toast">Email copied to clipboard!</div>
+
+    
+    <script>
+        console.log("%c👋 Hello Developer!", "font-size: 20px; font-weight: bold; color: #FF9900;");
+        
+        console.log(`
+        ===================================
+        🔍 You found the easter egg! 
+        
+        🚀 Quick commands to try in console:
+        • whoAmI()
+        • skills()
+        • letsTalk()
+        ===================================
+        `);
+
+        // Fun interactive functions
+        function whoAmI() {
+            console.log(`
+            🎯 Mission: Frontend Developer on a quest to build amazing user experiences
+            🎓 Current: MS CS @ SUNY Albany
+            🌟 Passion: Web3, React, and all things JavaScript
+            `);
+        }
+
+        function skills() {
+            console.log(`
+            🛠️ Technical Skills:
+            ================
+            Frontend: React, JavaScript, HTML, CSS
+            Backend: Python, Node.js
+            Web3: Solidity, Smart Contracts
+            
+            💪 Soft Skills:
+            ================
+            • Team Leadership
+            • Project Management
+            • Technical Writing
+            `);
+        }
+
+        function letsTalk() {
+            console.log(`
+            📫 Let's connect!
+            ================
+            Email: ishan.pathak2711@gmail.com
+            Location: Albany, New York
+            Project showcase: https://blockchain-comment.vercel.app/
+            `);
+        }
+
+        // Hidden achievement
+        const achievementUnlocked = new Event("achievementUnlocked");
+        document.addEventListener("achievementUnlocked", () => {
+            console.log("%c🏆 Achievement Unlocked: Curious Developer!", "color: #FFD700; font-size: 16px; font-weight: bold;");
+        });
+        
+        // Trigger the achievement after a few seconds
+        setTimeout(() => {
+            document.dispatchEvent(achievementUnlocked);
+        }, 5000);
+    </script>
+</body>
+</html>
 </body>
 </html>
